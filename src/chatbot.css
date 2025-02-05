@@ -1,0 +1,590 @@
+:root {
+    --luxury-navy: #0A1F44;
+    --luxury-gold: #D4AF37;
+    --luxury-dark: #2F2F2F;
+    --luxury-light: #FFFFFF;
+    --luxury-gold-light: #E5C76A;
+    --luxury-navy-dark: #061631;
+    font-family: 'Gilda Display';
+}
+
+.glassmorphism {
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.8) 0%,
+        rgba(255, 255, 255, 0.6) 25%,
+        rgba(255, 255, 255, 0.4) 50%,
+        rgba(255, 255, 255, 0.2) 75%,
+        rgba(255, 255, 255, 0.1) 100%
+    );
+    backdrop-filter: blur(8px) saturate(180%);
+    -webkit-backdrop-filter: blur(8px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 
+        0 8px 32px rgba(10, 31, 68, 0.08),
+        0 2px 8px rgba(10, 31, 68, 0.04);
+}
+
+.glassmorphism-container {
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.9) 0%,
+        rgba(255, 255, 255, 0.7) 25%,
+        rgba(255, 255, 255, 0.5) 50%,
+        rgba(255, 255, 255, 0.3) 75%,
+        rgba(255, 255, 255, 0.1) 100%
+    );
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 
+        0 8px 32px rgba(0, 0, 0, 0.08),
+        0 2px 8px rgba(0, 0, 0, 0.04);
+    z-index: -1;
+}
+
+.message-in {
+    animation: slideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.message-in:last-child {
+    margin-bottom: 2rem;
+}
+
+.message-in.bot {
+    animation: slideInLeft 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    padding-right: 20%;
+}
+
+.message-in.user {
+    animation: slideInRight 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    padding-left: 20%;
+}
+
+.chat-bubble {
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.chat-bubble:hover {
+    transform: translateY(-1px);
+}
+
+.chat-bubble.bot {
+    background: linear-gradient(145deg, 
+        rgba(6, 22, 49, 0.95), 
+        rgba(10, 31, 68, 0.95)
+    );
+    color: var(--luxury-light);
+    box-shadow: 
+        0 4px 15px rgba(10, 31, 68, 0.1),
+        0 2px 5px rgba(10, 31, 68, 0.05);
+    border-radius: 18px 18px 18px 4px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-family: 'Gilda Display';
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
+.chat-bubble.user {
+    background: linear-gradient(145deg, 
+        rgba(212, 175, 55, 0.95), 
+        rgba(229, 199, 106, 0.95)
+    );
+    color: var(--luxury-dark);
+    box-shadow: 
+        0 4px 15px rgba(212, 175, 55, 0.1),
+        0 2px 5px rgba(212, 175, 55, 0.05);
+    border-radius: 18px 18px 4px 18px;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.btn-luxury {
+    background: linear-gradient(145deg, var(--luxury-navy), var(--luxury-navy-dark));
+    color: var(--luxury-light);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 4px 15px rgba(10, 31, 68, 0.2);
+    border-radius: 16px;
+    font-family: 'Gilda Display';
+    font-weight: 600;
+    letter-spacing: 0.03em;
+}
+
+.btn-luxury:hover {
+    background: linear-gradient(145deg, var(--luxury-navy-dark), var(--luxury-navy));
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(10, 31, 68, 0.3);
+}
+
+.btn-luxury:active {
+    transform: translateY(0);
+}
+
+.custom-checkbox {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--luxury-gold);
+    border-radius: 8px;
+    background: rgba(244, 241, 236, 0.9);
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+    margin: 0 12px;
+}
+
+.custom-checkbox:checked {
+    background: var(--luxury-gold);
+}
+
+.custom-checkbox:checked::after {
+    content: '✓';
+    position: absolute;
+    color: white;
+    font-size: 14px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.modern-input {
+    background: rgba(255, 255, 255, 0.8);
+    border: 1px solid var(--luxury-gold);
+    border-radius: 8px;
+    padding: 12px;
+    transition: all 0.3s ease;
+}
+
+.modern-input:focus {
+    background: rgba(255, 255, 255, 0.95);
+    border-color: var(--luxury-navy);
+    box-shadow: 0 0 0 3px rgba(10, 31, 68, 0.1);
+}
+
+.input-luxury {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-color: var(--luxury-gold);
+}
+
+.input-luxury:focus {
+    border-color: var(--luxury-navy);
+    ring-color: var(--luxury-navy);
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-10px) translateY(5px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0) translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--luxury-gold);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--luxury-gold-light);
+}
+
+/* Floating animation for chat toggle */
+@keyframes float {
+    0% { transform: translateY(0px) scale(1); }
+    50% { transform: translateY(-6px) scale(1.02); }
+    100% { transform: translateY(0px) scale(1); }
+}
+
+.float-animation {
+    animation: float 4s ease-in-out infinite;
+}
+
+/* Add new spacing utility classes */
+.chat-spacing > * {
+    margin-bottom: 16px;
+}
+
+.chat-spacing > *:last-child {
+    margin-bottom: 0;
+}
+
+/* Typing indicator animation */
+.typing-animation {
+    display: flex;
+    gap: 4px;
+    padding: 0 4px;
+}
+
+.typing-animation span {
+    width: 6px;
+    height: 6px;
+    background: var(--luxury-gold);
+    border-radius: 50%;
+    animation: typing 1.4s infinite;
+}
+
+.typing-animation span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-animation span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes typing {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+}
+
+/* Option button styles */
+.option-button {
+    position: relative;
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(244, 244, 244, 0.95));
+    border: 1px solid var(--luxury-gold);
+    box-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.05),
+        0 0 0 1px rgba(212, 175, 55, 0.2);  /* Add subtle border shadow */
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    color: var(--luxury-dark);
+    font-family: 'Gilda Display';
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    border-radius: 16px;  /* Match the rounded style */
+}
+
+.option-button:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--luxury-gold);
+    border-radius: 4px 0 0 4px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.option-button:hover:before {
+    opacity: 1;
+}
+
+.option-button:hover {
+    transform: translateX(4px);
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(244, 244, 244, 0.98));
+    border-color: var(--luxury-gold);
+    box-shadow: 
+        0 4px 8px rgba(0, 0, 0, 0.1),
+        0 0 0 1.5px var(--luxury-gold);  /* Emphasize border on hover */
+}
+
+.option-button.primary {
+    background: linear-gradient(145deg, var(--luxury-navy), var(--luxury-navy-dark));
+    color: var(--luxury-light);
+}
+
+.option-button.primary:hover {
+    background: linear-gradient(145deg, var(--luxury-navy-dark), var(--luxury-navy));
+}
+
+.option-button + .option-button {
+    margin-top: 0.75rem;
+}
+
+/* Add subtle icons to common actions */
+.option-button[data-action="reservation"]:after {
+    content: '🪑';
+    margin-left: 8px;
+    opacity: 0.7;
+}
+
+.option-button[data-action="tarjous"]:after {
+    content: '🎉';
+    margin-left: 8px;
+    opacity: 0.7;
+}
+
+.option-button[data-action="lahjakortti"]:after {
+    content: '🎁';
+    margin-left: 8px;
+    opacity: 0.7;
+}
+
+.option-button[data-action="menu"]:after {
+    content: '📋';
+    margin-left: 8px;
+    opacity: 0.7;
+}
+
+.option-button[data-action="muu_viesti"]:after {
+    content: '✉️';
+    margin-left: 8px;
+    opacity: 0.7;
+}
+
+/* Update the button class in showOptions method styling */
+button.w-full {
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    box-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.05),
+        0 0 0 1px rgba(212, 175, 55, 0.2);
+    border-radius: 16px;  /* Match the rounded style */
+}
+
+button.w-full:hover {
+    border-color: var(--luxury-gold);
+    box-shadow: 
+        0 4px 8px rgba(0, 0, 0, 0.1),
+        0 0 0 1.5px var(--luxury-gold);
+}
+
+/* Contact link styles */
+.contact-link {
+    color: var(--luxury-gold);
+    padding: 10px;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-link:hover {
+    color: var(--luxury-gold-light);
+    transform: translateY(-2px);
+}
+
+.contact-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--luxury-gold);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+    opacity: 0;
+}
+
+.contact-link:hover::after {
+    width: 100%;
+    opacity: 1;
+}
+
+/* Header styles */
+.header-icon-btn {
+    color: var(--luxury-gold);
+    transition: all 0.3s ease;
+    padding: 8px;
+    border-radius: 8px;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-icon-btn:hover {
+    color: var(--luxury-gold-light);
+    transform: translateY(-1px);
+    background: rgba(212, 175, 55, 0.1);
+}
+
+.header-icon-btn:active {
+    transform: translateY(0);
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.animate-pulse {
+    animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Update message container background */
+#chat-messages {
+    position: relative;
+    height: 420px;
+    overflow-y: auto;
+    scrollbar-gutter: stable;
+    background: rgba(255, 255, 255, 0.02);
+}
+
+#chat-messages::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.9),
+        transparent
+    );
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Sticky gradient overlay */
+.gradient-overlay {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 160px;
+    z-index: 10;
+    pointer-events: none;
+    background: linear-gradient(
+        to bottom,
+        var(--luxury-light) 0%,
+        rgba(255, 255, 255, 0.98) 20%,
+        rgba(255, 255, 255, 0.95) 40%,
+        rgba(255, 255, 255, 0.8) 60%,
+        rgba(255, 255, 255, 0.4) 80%,
+        rgba(255, 255, 255, 0) 100%
+    );
+}
+
+/* Message container styles */
+.messages-wrapper {
+    position: relative;
+    padding: 1.5rem;
+    padding-top: 130px; /* Increased from 100px to move content lower */
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start; /* Changed from flex-end to flex-start */
+}
+
+/* Update footer style */
+.chat-footer {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    border-top: none; /* Remove the border */
+    box-shadow: 0 -4px 16px rgba(10, 31, 68, 0.1);
+    position: relative;
+    z-index: 2;
+    margin-bottom: 5px; /* Add space at the bottom */
+    margin-top: 0.5rem; /* Add space above footer */
+}
+
+/* Update control buttons */
+.control-btn {
+    color: var(--luxury-gold);
+    transition: all 0.3s ease;
+    padding: 8px;
+    border-radius: 8px;
+    background: rgba(212, 175, 55, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.control-btn:hover {
+    color: var(--luxury-gold-light);
+    transform: translateY(-1px);
+    background: rgba(212, 175, 55, 0.2);
+}
+
+h1, h2, h3, 
+.btn-luxury,
+.option-button {
+    font-family: 'Gilda Display';
+    font-weight: 600;
+    letter-spacing: 0.03em;
+}
+
+/* Update inputs section - add padding */
+#chat-inputs {
+    padding: 1.5rem;
+    padding-bottom: 2rem; /* Increased bottom padding */
+    border-top: none; /* Remove the border */
+}
+
+/* Language button styles */
+.lang-btn {
+    padding: 2px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    opacity: 0.6;
+}
+
+.lang-btn img {
+    width: 20px; /* Adjusted from 24px to 20px */
+    height: 14px; /* Adjusted from 16px to 14px */
+}
+
+.lang-btn:hover {
+    transform: translateY(-1px);
+    opacity: 1;
+}
+
+.lang-btn.active {
+    opacity: 1;
+    box-shadow: 0 0 0 2px var(--luxury-gold);
+}
+
+/* Update chat toggle button z-index */
+#chat-toggle {
+    z-index: 40;
+    transition: opacity 0.3s ease;
+}
+
+/* When chat is open, lower the toggle button */
+#chatbot:not(.hidden) + #chat-toggle {
+    z-index: 30;
+    opacity: 0.5;
+}
+
+/* Ensure chatbot window stays on top */
+#chatbot {
+    z-index: 50;
+}
