@@ -139,7 +139,7 @@ const translations = {
     }
 };
 
-document.addEventListener("DOMContentLoaded", function () {
+window.initChatbot = function() {
     const chatbot = {
         toggle: document.getElementById("chat-toggle"),
         window: document.getElementById("chatbot"),
@@ -592,4 +592,11 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     chatbot.init();
+};
+
+// Keep DOMContentLoaded listener as fallback
+document.addEventListener("DOMContentLoaded", function () {
+    if (typeof window.initChatbot === 'function') {
+        window.initChatbot();
+    }
 });
