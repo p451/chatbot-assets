@@ -256,12 +256,15 @@ document.addEventListener("DOMContentLoaded", function () {
         },
 
         addMessage(text, sender) {
+            // Add XSS prevention
+            const sanitizedText = text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+            
             const messageDiv = document.createElement("div");
             messageDiv.className = `message-in ${sender} mb-4 ${sender === 'bot' ? 'text-left' : 'text-right'}`;
             messageDiv.innerHTML = `
                 <div class="chat-bubble ${sender} 
                     inline-block p-4 shadow-sm">
-                    ${text}
+                    ${sanitizedText}
                 </div>
             `;
             document.querySelector('.messages-wrapper').appendChild(messageDiv);
@@ -442,6 +445,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 alert(this.getText('select_date'));
                 return;
             }
+            
+            // Add date validation
+            const selectedDate = new Date(dateInput.value);
+            const now = new Date();
+            if (selectedDate < now) {
+                alert('Please select a future date');
+                return;
+            }
+            
             this.state.eventDetails.date = dateInput.value;
             this.showTalkForm();
         },
@@ -498,6 +510,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (!name || !email || !phone) {
                 alert(this.getText('fill_required'));
+                return;
+            }
+
+            // Add email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address');
+                return;
+            }
+
+            // Add phone validation
+            const phoneRegex = /^[+]?[(]?[0-9]{3}[)]?[-\s.]?[0-9]{3}[-\s.]?[0-9]{4,6}$/;
+            if (!phoneRegex.test(phone)) {
+                alert('Please enter a valid phone number');
                 return;
             }
 
