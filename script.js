@@ -163,41 +163,55 @@ document.addEventListener("DOMContentLoaded", function () {
         currentLang: 'fi',
 
         init() {
-            this.toggle.addEventListener("click", () => {
-                this.window.classList.toggle("hidden");
-                // Reset scroll position when opening chat
-                if (!this.window.classList.contains("hidden")) {
-                    setTimeout(() => {
-                        this.messages.scrollTo({
-                            top: 0,
-                            behavior: 'smooth'
-                        });
-                    }, 100);
-                }
-            });
-            
-            this.close.addEventListener("click", () => {
-                this.window.classList.add("hidden");
-            });
+            // Wait for elements to be available
+            setTimeout(() => {
+                this.toggle = document.getElementById("chat-toggle");
+                this.window = document.getElementById("chatbot");
+                this.close = document.getElementById("chat-close");
+                this.messages = document.getElementById("chat-messages");
+                this.inputs = document.getElementById("chat-inputs");
 
-            document.getElementById("chat-reset").addEventListener("click", () => this.resetChat());
-            
-            // Create messages wrapper if it doesn't exist
-            if (!document.querySelector('.messages-wrapper')) {
-                const wrapper = document.createElement('div');
-                wrapper.className = 'messages-wrapper';
-                this.messages.appendChild(wrapper);
-            }
-
-            // Add language button listeners
-            document.querySelectorAll('.lang-btn').forEach(btn => {
-                btn.addEventListener('click', () => this.setLanguage(btn.dataset.lang));
-                if (btn.dataset.lang === this.currentLang) {
-                    btn.classList.add('active');
+                if (!this.toggle || !this.window || !this.close || !this.messages || !this.inputs) {
+                    console.error("Required chatbot elements not found");
+                    return;
                 }
-            });
-            
-            this.startChat();
+
+                this.toggle.addEventListener("click", () => {
+                    this.window.classList.toggle("hidden");
+                    // Reset scroll position when opening chat
+                    if (!this.window.classList.contains("hidden")) {
+                        setTimeout(() => {
+                            this.messages.scrollTo({
+                                top: 0,
+                                behavior: 'smooth'
+                            });
+                        }, 100);
+                    }
+                });
+                
+                this.close.addEventListener("click", () => {
+                    this.window.classList.add("hidden");
+                });
+
+                document.getElementById("chat-reset").addEventListener("click", () => this.resetChat());
+                
+                // Create messages wrapper if it doesn't exist
+                if (!document.querySelector('.messages-wrapper')) {
+                    const wrapper = document.createElement('div');
+                    wrapper.className = 'messages-wrapper';
+                    this.messages.appendChild(wrapper);
+                }
+
+                // Add language button listeners
+                document.querySelectorAll('.lang-btn').forEach(btn => {
+                    btn.addEventListener('click', () => this.setLanguage(btn.dataset.lang));
+                    if (btn.dataset.lang === this.currentLang) {
+                        btn.classList.add('active');
+                    }
+                });
+                
+                this.startChat();
+            }, 500);
         },
 
         setLanguage(lang) {
