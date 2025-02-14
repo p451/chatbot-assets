@@ -377,24 +377,26 @@ window.initChatbot = function() {
 
         showMultipleChoice(options, callback) {
             this.inputs.innerHTML = '';
+            const wrapper = document.createElement('div');
+            wrapper.className = 'multiple-choice-wrapper';
+            
             options.forEach(option => {
                 const div = document.createElement('div');
-                div.className = 'flex items-center mb-3 p-2 hover:bg-old-money-200/30 rounded-lg transition-all';
+                div.className = 'flex items-center hover:bg-old-money-200/30 rounded-lg transition-all p-2';
                 div.innerHTML = `
-                    <input type="checkbox" id="${option}" class="custom-checkbox mr-3">
+                    <input type="checkbox" id="${option}" class="custom-checkbox">
                     <label for="${option}" class="cursor-pointer flex-grow">${option}</label>
                 `;
-                this.inputs.appendChild(div);
+                wrapper.appendChild(div);
             });
+            
+            this.inputs.appendChild(wrapper);
             
             const confirmButton = document.createElement('button');
             confirmButton.textContent = this.getText('continue');
-            confirmButton.className = 'w-full p-3 btn-old-money rounded-xl mt-4 animate-fade-in';
+            confirmButton.className = 'w-full p-3 btn-old-money rounded-xl mt-2 animate-fade-in';
             confirmButton.onclick = callback;
             this.inputs.appendChild(confirmButton);
-
-            const stepName = callback.name.includes('EventType') ? 'eventTypeMultipleChoice' : 'offeringsMultipleChoice';
-            this.state.currentStep = stepName;
         },
 
         handleEventTypeSelected() {
