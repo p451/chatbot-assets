@@ -1,16 +1,4 @@
-/* Reset styles for the chatbot container */
-.madame-chatbot-wrapper {
-    all: initial;
-    font-family: 'Gilda Display', serif;
-    position: static;
-    pointer-events: none;
-}
-
-.madame-chatbot-wrapper * {
-    pointer-events: auto;
-}
-
-.madame-chatbot-wrapper :root {
+:root {
     --luxury-navy: #0A1F44;
     --luxury-gold: #D4AF37;
     --luxury-dark: #2F2F2F;
@@ -20,7 +8,7 @@
     font-family: 'Gilda Display';
 }
 
-.madame-chatbot-wrapper .glassmorphism {
+.glassmorphism {
     background: linear-gradient(
         to bottom,
         rgba(255, 255, 255, 0.8) 0%,
@@ -37,7 +25,7 @@
         0 2px 8px rgba(10, 31, 68, 0.04);
 }
 
-.madame-chatbot-wrapper .glassmorphism-container {
+.glassmorphism-container {
     background: linear-gradient(
         to bottom,
         rgba(255, 255, 255, 0.9) 0%,
@@ -55,28 +43,28 @@
     z-index: -1;
 }
 
-.madame-chatbot-wrapper .message-in {
+.message-in {
     animation: slideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     margin-bottom: 1rem;
     position: relative;
     z-index: 1;
 }
 
-.madame-chatbot-wrapper .message-in:last-child {
+.message-in:last-child {
     margin-bottom: 2rem;
 }
 
-.madame-chatbot-wrapper .message-in.bot {
+.message-in.bot {
     animation: slideInLeft 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     padding-right: 20%;
 }
 
-.madame-chatbot-wrapper .message-in.user {
+.message-in.user {
     animation: slideInRight 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
     padding-left: 20%;
 }
 
-.madame-chatbot-wrapper .chat-bubble {
+.chat-bubble {
     position: relative;
     z-index: 2;
     transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -84,11 +72,11 @@
     -webkit-backdrop-filter: blur(8px);
 }
 
-.madame-chatbot-wrapper .chat-bubble:hover {
+.chat-bubble:hover {
     transform: translateY(-1px);
 }
 
-.madame-chatbot-wrapper .chat-bubble.bot {
+.chat-bubble.bot {
     background: linear-gradient(145deg, 
         rgba(6, 22, 49, 0.95), 
         rgba(10, 31, 68, 0.95)
@@ -106,7 +94,7 @@
     letter-spacing: 0.02em;
 }
 
-.madame-chatbot-wrapper .chat-bubble.user {
+.chat-bubble.user {
     background: linear-gradient(145deg, 
         rgba(212, 175, 55, 0.95), 
         rgba(229, 199, 106, 0.95)
@@ -121,7 +109,7 @@
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.madame-chatbot-wrapper .btn-luxury {
+.btn-luxury {
     background: linear-gradient(145deg, var(--luxury-navy), var(--luxury-navy-dark));
     color: var(--luxury-light);
     transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
@@ -132,17 +120,17 @@
     letter-spacing: 0.03em;
 }
 
-.madame-chatbot-wrapper .btn-luxury:hover {
+.btn-luxury:hover {
     background: linear-gradient(145deg, var(--luxury-navy-dark), var(--luxury-navy));
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(10, 31, 68, 0.3);
 }
 
-.madame-chatbot-wrapper .btn-luxury:active {
+.btn-luxury:active {
     transform: translateY(0);
 }
 
-.madame-chatbot-wrapper .custom-checkbox {
+.custom-checkbox {
     appearance: none;
     width: 20px;
     height: 20px;
@@ -155,11 +143,11 @@
     margin: 0 12px;
 }
 
-.madame-chatbot-wrapper .custom-checkbox:checked {
+.custom-checkbox:checked {
     background: var(--luxury-gold);
 }
 
-.madame-chatbot-wrapper .custom-checkbox:checked::after {
+.custom-checkbox:checked::after {
     content: '✓';
     position: absolute;
     color: white;
@@ -169,7 +157,7 @@
     transform: translate(-50%, -50%);
 }
 
-.madame-chatbot-wrapper .modern-input {
+.modern-input {
     background: rgba(255, 255, 255, 0.8);
     border: 1px solid var(--luxury-gold);
     border-radius: 8px;
@@ -177,18 +165,18 @@
     transition: all 0.3s ease;
 }
 
-.madame-chatbot-wrapper .modern-input:focus {
+.modern-input:focus {
     background: rgba(255, 255, 255, 0.95);
     border-color: var(--luxury-navy);
     box-shadow: 0 0 0 3px rgba(10, 31, 68, 0.1);
 }
 
-.madame-chatbot-wrapper .input-luxury {
+.input-luxury {
     background-color: rgba(255, 255, 255, 0.95);
     border-color: var(--luxury-gold);
 }
 
-.madame-chatbot-wrapper .input-luxury:focus {
+.input-luxury:focus {
     border-color: var(--luxury-navy);
     ring-color: var(--luxury-navy);
 }
@@ -227,20 +215,20 @@
 }
 
 /* Scrollbar styling */
-.madame-chatbot-wrapper ::-webkit-scrollbar {
+::-webkit-scrollbar {
     width: 6px;
 }
 
-.madame-chatbot-wrapper ::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
     background: rgba(255, 255, 255, 0.1);
 }
 
-.madame-chatbot-wrapper ::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
     background: var(--luxury-gold);
     border-radius: 3px;
 }
 
-.madame-chatbot-wrapper ::-webkit-scrollbar-thumb:hover {
+::-webkit-scrollbar-thumb:hover {
     background: var(--luxury-gold-light);
 }
 
@@ -251,27 +239,27 @@
     100% { transform: translateY(0px) scale(1); }
 }
 
-.madame-chatbot-wrapper .float-animation {
+.float-animation {
     animation: float 4s ease-in-out infinite;
 }
 
 /* Add new spacing utility classes */
-.madame-chatbot-wrapper .chat-spacing > * {
+.chat-spacing > * {
     margin-bottom: 16px;
 }
 
-.madame-chatbot-wrapper .chat-spacing > *:last-child {
+.chat-spacing > *:last-child {
     margin-bottom: 0;
 }
 
 /* Typing indicator animation */
-.madame-chatbot-wrapper .typing-animation {
+.typing-animation {
     display: flex;
     gap: 4px;
     padding: 0 4px;
 }
 
-.madame-chatbot-wrapper .typing-animation span {
+.typing-animation span {
     width: 6px;
     height: 6px;
     background: var(--luxury-gold);
@@ -279,11 +267,11 @@
     animation: typing 1.4s infinite;
 }
 
-.madame-chatbot-wrapper .typing-animation span:nth-child(2) {
+.typing-animation span:nth-child(2) {
     animation-delay: 0.2s;
 }
 
-.madame-chatbot-wrapper .typing-animation span:nth-child(3) {
+.typing-animation span:nth-child(3) {
     animation-delay: 0.4s;
 }
 
@@ -293,7 +281,7 @@
 }
 
 /* Option button styles */
-.madame-chatbot-wrapper .option-button {
+.option-button {
     position: relative;
     background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(244, 244, 244, 0.95));
     border: 1px solid var(--luxury-gold);
@@ -308,7 +296,7 @@
     border-radius: 16px;  /* Match the rounded style */
 }
 
-.madame-chatbot-wrapper .option-button:before {
+.option-button:before {
     content: '';
     position: absolute;
     left: 0;
@@ -321,11 +309,11 @@
     transition: opacity 0.3s ease;
 }
 
-.madame-chatbot-wrapper .option-button:hover:before {
+.option-button:hover:before {
     opacity: 1;
 }
 
-.madame-chatbot-wrapper .option-button:hover {
+.option-button:hover {
     transform: translateX(4px);
     background: linear-gradient(145deg, rgba(255, 255, 255, 0.98), rgba(244, 244, 244, 0.98));
     border-color: var(--luxury-gold);
@@ -334,52 +322,52 @@
         0 0 0 1.5px var(--luxury-gold);  /* Emphasize border on hover */
 }
 
-.madame-chatbot-wrapper .option-button.primary {
+.option-button.primary {
     background: linear-gradient(145deg, var(--luxury-navy), var(--luxury-navy-dark));
     color: var(--luxury-light);
 }
 
-.madame-chatbot-wrapper .option-button.primary:hover {
+.option-button.primary:hover {
     background: linear-gradient(145deg, var(--luxury-navy-dark), var(--luxury-navy));
 }
 
-.madame-chatbot-wrapper .option-button + .option-button {
+.option-button + .option-button {
     margin-top: 0.75rem;
 }
 
 /* Add subtle icons to common actions */
-.madame-chatbot-wrapper .option-button[data-action="reservation"]:after {
+.option-button[data-action="reservation"]:after {
     content: '🪑';
     margin-left: 8px;
     opacity: 0.7;
 }
 
-.madame-chatbot-wrapper .option-button[data-action="tarjous"]:after {
+.option-button[data-action="tarjous"]:after {
     content: '🎉';
     margin-left: 8px;
     opacity: 0.7;
 }
 
-.madame-chatbot-wrapper .option-button[data-action="lahjakortti"]:after {
+.option-button[data-action="lahjakortti"]:after {
     content: '🎁';
     margin-left: 8px;
     opacity: 0.7;
 }
 
-.madame-chatbot-wrapper .option-button[data-action="menu"]:after {
+.option-button[data-action="menu"]:after {
     content: '📋';
     margin-left: 8px;
     opacity: 0.7;
 }
 
-.madame-chatbot-wrapper .option-button[data-action="muu_viesti"]:after {
+.option-button[data-action="muu_viesti"]:after {
     content: '✉️';
     margin-left: 8px;
     opacity: 0.7;
 }
 
 /* Update the button class in showOptions method styling */
-.madame-chatbot-wrapper button.w-full {
+button.w-full {
     border: 1px solid rgba(212, 175, 55, 0.4);
     box-shadow: 
         0 2px 4px rgba(0, 0, 0, 0.05),
@@ -387,7 +375,7 @@
     border-radius: 16px;  /* Match the rounded style */
 }
 
-.madame-chatbot-wrapper button.w-full:hover {
+button.w-full:hover {
     border-color: var(--luxury-gold);
     box-shadow: 
         0 4px 8px rgba(0, 0, 0, 0.1),
@@ -395,7 +383,7 @@
 }
 
 /* Contact link styles */
-.madame-chatbot-wrapper .contact-link {
+.contact-link {
     color: var(--luxury-gold);
     padding: 10px;
     transition: all 0.3s ease;
@@ -405,12 +393,12 @@
     justify-content: center;
 }
 
-.madame-chatbot-wrapper .contact-link:hover {
+.contact-link:hover {
     color: var(--luxury-gold-light);
     transform: translateY(-2px);
 }
 
-.madame-chatbot-wrapper .contact-link::after {
+.contact-link::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -423,13 +411,13 @@
     opacity: 0;
 }
 
-.madame-chatbot-wrapper .contact-link:hover::after {
+.contact-link:hover::after {
     width: 100%;
     opacity: 1;
 }
 
 /* Header styles */
-.madame-chatbot-wrapper .header-icon-btn {
+.header-icon-btn {
     color: var(--luxury-gold);
     transition: all 0.3s ease;
     padding: 8px;
@@ -440,13 +428,13 @@
     justify-content: center;
 }
 
-.madame-chatbot-wrapper .header-icon-btn:hover {
+.header-icon-btn:hover {
     color: var(--luxury-gold-light);
     transform: translateY(-1px);
     background: rgba(212, 175, 55, 0.1);
 }
 
-.madame-chatbot-wrapper .header-icon-btn:active {
+.header-icon-btn:active {
     transform: translateY(0);
 }
 
@@ -455,12 +443,12 @@
     50% { opacity: 0.5; }
 }
 
-.madame-chatbot-wrapper .animate-pulse {
+.animate-pulse {
     animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 /* Update message container background */
-.madame-chatbot-wrapper #chat-messages {
+#chat-messages {
     position: relative;
     height: 420px;
     overflow-y: auto;
@@ -468,7 +456,7 @@
     background: rgba(255, 255, 255, 0.02);
 }
 
-.madame-chatbot-wrapper #chat-messages::before {
+#chat-messages::before {
     content: '';
     position: fixed;
     top: 0;
@@ -485,7 +473,7 @@
 }
 
 /* Sticky gradient overlay */
-.madame-chatbot-wrapper .gradient-overlay {
+.gradient-overlay {
     position: sticky;
     top: 0;
     left: 0;
@@ -505,7 +493,7 @@
 }
 
 /* Message container styles */
-.madame-chatbot-wrapper .messages-wrapper {
+.messages-wrapper {
     position: relative;
     padding: 1.5rem;
     padding-top: 130px; /* Increased from 100px to move content lower */
@@ -515,63 +503,21 @@
     justify-content: flex-start; /* Changed from flex-end to flex-start */
 }
 
-/* Update footer style - replacing old .chat-footer */
-.madame-chatbot-wrapper .chat-footer {
-    background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-top: 1px solid rgba(212, 175, 55, 0.1);
-    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.02);
+/* Update footer style */
+.chat-footer {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    border-top: none; /* Remove the border */
+    box-shadow: 0 -4px 16px rgba(10, 31, 68, 0.1);
     position: relative;
     z-index: 2;
-    margin-bottom: 5px;
-    margin-top: 0.5rem;
-}
-
-/* Add new footer icon button styles */
-.madame-chatbot-wrapper .footer-icon-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    border-radius: 8px;
-    color: var(--luxury-navy);
-    background: rgba(10, 31, 68, 0.05);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
-}
-
-.madame-chatbot-wrapper .footer-icon-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(45deg, var(--luxury-gold), var(--luxury-gold-light));
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.madame-chatbot-wrapper .footer-icon-btn i {
-    position: relative;
-    z-index: 1;
-    font-size: 14px;
-}
-
-.madame-chatbot-wrapper .footer-icon-btn:hover {
-    transform: translateY(-2px);
-    color: var(--luxury-light);
-}
-
-.madame-chatbot-wrapper .footer-icon-btn:hover::before {
-    opacity: 1;
+    margin-bottom: 5px; /* Add space at the bottom */
+    margin-top: 0.5rem; /* Add space above footer */
 }
 
 /* Update control buttons */
-.madame-chatbot-wrapper .control-btn {
+.control-btn {
     color: var(--luxury-gold);
     transition: all 0.3s ease;
     padding: 8px;
@@ -582,65 +528,63 @@
     justify-content: center;
 }
 
-.madame-chatbot-wrapper .control-btn:hover {
+.control-btn:hover {
     color: var(--luxury-gold-light);
     transform: translateY(-1px);
     background: rgba(212, 175, 55, 0.2);
 }
 
-.madame-chatbot-wrapper h1, h2, h3, 
-.madame-chatbot-wrapper .btn-luxury,
-.madame-chatbot-wrapper .option-button {
+h1, h2, h3, 
+.btn-luxury,
+.option-button {
     font-family: 'Gilda Display';
     font-weight: 600;
     letter-spacing: 0.03em;
 }
 
 /* Update inputs section - add padding */
-.madame-chatbot-wrapper #chat-inputs {
+#chat-inputs {
     padding: 1.5rem;
     padding-bottom: 2rem; /* Increased bottom padding */
     border-top: none; /* Remove the border */
 }
 
-/* Update language button styles - replacing old .lang-btn styles */
-.madame-chatbot-wrapper .lang-btn {
+/* Language button styles */
+.lang-btn {
     padding: 2px;
     border-radius: 4px;
-    border: 1px solid transparent;
     transition: all 0.3s ease;
     opacity: 0.6;
 }
 
-.madame-chatbot-wrapper .lang-btn:hover {
-    opacity: 1;
-    border-color: var(--luxury-gold);
+.lang-btn img {
+    width: 20px; /* Adjusted from 24px to 20px */
+    height: 14px; /* Adjusted from 16px to 14px */
 }
 
-.madame-chatbot-wrapper .lang-btn.active {
+.lang-btn:hover {
+    transform: translateY(-1px);
     opacity: 1;
-    border: 1px solid var(--luxury-gold);
-    box-shadow: 0 0 0 1px var(--luxury-gold-light);
 }
 
-/* Add subtle hover effect for the entire footer */
-.madame-chatbot-wrapper .chat-footer:hover {
-    border-top-color: rgba(212, 175, 55, 0.2);
+.lang-btn.active {
+    opacity: 1;
+    box-shadow: 0 0 0 2px var(--luxury-gold);
 }
 
 /* Update chat toggle button z-index */
-.madame-chatbot-wrapper #chat-toggle {
+#chat-toggle {
     z-index: 40;
     transition: opacity 0.3s ease;
 }
 
 /* When chat is open, lower the toggle button */
-.madame-chatbot-wrapper #chatbot:not(.hidden) + #chat-toggle {
+#chatbot:not(.hidden) + #chat-toggle {
     z-index: 30;
     opacity: 0.5;
 }
 
 /* Ensure chatbot window stays on top */
-.madame-chatbot-wrapper #chatbot {
+#chatbot {
     z-index: 50;
 }
