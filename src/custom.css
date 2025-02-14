@@ -1,6 +1,6 @@
 :root {
     --primary-color: #7D1128;     /* Main */
-    --primary-hover: #C99E10;     /* Hover*/
+    --primary-hover: #C99E10;     /* Hover1*/
     --button-bg:  #F5E6CA;   /* Button base without hover*/
     --button-hover-bg: var(--primary-color);
     --button-text: var(--luxury-dark);
