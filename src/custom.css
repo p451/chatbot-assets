@@ -1,19 +1,23 @@
 :root {
-    --primary-color: #8a4d25cb;     /* Military green */
-    --primary-hover: #bccc61;     /* Lighter military green */
-    --luxury-gold: #D4AF37;       /* Keep gold for accents */
-    --luxury-dark: #2F2F2F;
-    --luxury-light: #FFFFFF;
-    --luxury-gold-light: #E5C76A;
+    --primary-color: #0400ff;     /* Main */
+    --primary-hover: #eb3131;     /* Hover*/
+    --button-bg: rgba(255, 255, 255, 0.8);   /* Button base without hover*/
+    --button-hover-bg: var(--primary-color);
+    --button-text: var(--luxury-dark);
+    --button-hover-text: var(--luxury-light);
+    --luxury-gold: #00eeff;         /* User answer bg and scroll, bottom icons */
+    --luxury-dark: #000000;         /* User answer font color */
+    --luxury-light: #ffffff;        /* Bot answer font color */
+    --luxury-gold-light: #ff00ff;   /* Icon Hover color */
     /* Remove navy variables since we're not using them anymore */
     font-family: 'Be Vietnam Pro', sans-serif;
-    --glass-bg: rgba(255, 255, 255, 0.15);
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --glass-shadow: rgba(10, 31, 68, 0.03);
+    --glass-bg: rgba(255, 255, 255, 0.15);      /* Glassmorphism background */
+    --glass-border: rgba(255, 255, 255, 0.1);   /* Glassmorphism border */
+    --glass-shadow: rgba(10, 31, 68, 0.03);     /* Glassmorphism shadow */
 }
 
 body {
-    background-color: #ee8346; /* Cool light blue-gray */
+    background-color: #700874; /* Cool light blue-gray */
 }
 
 .glassmorphism {
@@ -98,23 +102,29 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.btn-luxury {
+.btn-luxury,
+button[id="sendForm"], 
+button[id="messageButton"],
+button[id="dateButton"],
+.w-full.p-2,
+.w-full.p-3[id*="Button"],
+button.w-full.p-3.btn-old-money {
     background: var(--primary-color);
     color: var(--luxury-light);
     transition: all 0.3s ease;
     border: none;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 16px;
-    font-family: 'Be Vietnam Pro', sans-serif;
-    letter-spacing: 0.03em;
-    font-weight: 400;
-    font-style: normal;
 }
 
-.btn-luxury:hover {
+.btn-luxury:hover,
+button[id="sendForm"]:hover, 
+button[id="messageButton"]:hover,
+button[id="dateButton"]:hover,
+.w-full.p-2:hover,
+.w-full.p-3[id*="Button"]:hover {
     background: var(--primary-hover);
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(10, 31, 68, 0.3);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
 .btn-luxury:active {
@@ -652,4 +662,29 @@ button[id="messageButton"] {
     justify-content: center;
     width: 32px;
     height: 32px;
+}
+
+/* Unified hover state */
+.w-full.p-3:hover,
+.option-button:hover,
+.btn-luxury:hover,
+button[id="sendForm"]:hover, 
+button[id="messageButton"]:hover,
+button[id="dateButton"]:hover,
+.w-full.p-2:hover,
+.w-full.p-3[id*="Button"]:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Update the showOptions button style */
+.chat-spacing button {
+    background: var(--button-bg);
+    color: var(--button-text);
+}
+
+.chat-spacing button:hover {
+    background: var(--button-hover-bg);
+    color: var(--button-hover-text);
 }
