@@ -515,17 +515,59 @@
     justify-content: flex-start; /* Changed from flex-end to flex-start */
 }
 
-/* Update footer style */
+/* Update footer style - replacing old .chat-footer */
 .madame-chatbot-wrapper .chat-footer {
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(12px) saturate(180%);
-    -webkit-backdrop-filter: blur(12px) saturate(180%);
-    border-top: none; /* Remove the border */
-    box-shadow: 0 -4px 16px rgba(10, 31, 68, 0.1);
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(212, 175, 55, 0.1);
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.02);
     position: relative;
     z-index: 2;
-    margin-bottom: 5px; /* Add space at the bottom */
-    margin-top: 0.5rem; /* Add space above footer */
+    margin-bottom: 5px;
+    margin-top: 0.5rem;
+}
+
+/* Add new footer icon button styles */
+.madame-chatbot-wrapper .footer-icon-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    color: var(--luxury-navy);
+    background: rgba(10, 31, 68, 0.05);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.madame-chatbot-wrapper .footer-icon-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, var(--luxury-gold), var(--luxury-gold-light));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.madame-chatbot-wrapper .footer-icon-btn i {
+    position: relative;
+    z-index: 1;
+    font-size: 14px;
+}
+
+.madame-chatbot-wrapper .footer-icon-btn:hover {
+    transform: translateY(-2px);
+    color: var(--luxury-light);
+}
+
+.madame-chatbot-wrapper .footer-icon-btn:hover::before {
+    opacity: 1;
 }
 
 /* Update control buttons */
@@ -561,27 +603,29 @@
     border-top: none; /* Remove the border */
 }
 
-/* Language button styles */
+/* Update language button styles - replacing old .lang-btn styles */
 .madame-chatbot-wrapper .lang-btn {
     padding: 2px;
     border-radius: 4px;
+    border: 1px solid transparent;
     transition: all 0.3s ease;
     opacity: 0.6;
 }
 
-.madame-chatbot-wrapper .lang-btn img {
-    width: 20px; /* Adjusted from 24px to 20px */
-    height: 14px; /* Adjusted from 16px to 14px */
-}
-
 .madame-chatbot-wrapper .lang-btn:hover {
-    transform: translateY(-1px);
     opacity: 1;
+    border-color: var(--luxury-gold);
 }
 
 .madame-chatbot-wrapper .lang-btn.active {
     opacity: 1;
-    box-shadow: 0 0 0 2px var(--luxury-gold);
+    border: 1px solid var(--luxury-gold);
+    box-shadow: 0 0 0 1px var(--luxury-gold-light);
+}
+
+/* Add subtle hover effect for the entire footer */
+.madame-chatbot-wrapper .chat-footer:hover {
+    border-top-color: rgba(212, 175, 55, 0.2);
 }
 
 /* Update chat toggle button z-index */
