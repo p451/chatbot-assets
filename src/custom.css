@@ -234,9 +234,8 @@
 
 /* Floating animation for chat toggle */
 @keyframes float {
-    0% { transform: translateY(0px) scale(1); }
-    50% { transform: translateY(-6px) scale(1.02); }
-    100% { transform: translateY(0px) scale(1); }
+     0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
 }
 
 .float-animation {
@@ -587,4 +586,83 @@ h1, h2, h3,
 /* Ensure chatbot window stays on top */
 #chatbot {
     z-index: 50;
+}
+
+/* Update footer style */
+.madame-chatbot-wrapper .chat-footer {
+    border-top: none !important;
+    padding: 0.75rem 1rem;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+/* Update message spacing */
+.madame-chatbot-wrapper .message-in {
+    margin-bottom: 0.75rem !important;
+}
+
+/* Update chat bubbles */
+.madame-chatbot-wrapper .chat-bubble {
+    padding: 0.75rem 1rem !important;
+}
+
+.madame-chatbot-wrapper .chat-bubble.bot {
+    background: linear-gradient(145deg, 
+        var(--luxury-gold) 0%, 
+        var(--luxury-gold-light) 100%
+    ) !important;
+    color: var(--luxury-dark) !important;
+}
+
+/* Update button styles */
+.madame-chatbot-wrapper button.w-full {
+    padding: 0.75rem 1rem !important;
+    background: linear-gradient(145deg, 
+        rgba(255, 255, 255, 0.95), 
+        rgba(255, 255, 255, 0.85)
+    );
+    border: 1px solid var(--luxury-gold);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Update footer icons */
+.madame-chatbot-wrapper .footer-icon-btn {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background: rgba(10, 31, 68, 0.05);
+}
+
+.madame-chatbot-wrapper .footer-icon-btn:hover {
+    background: var(--luxury-gold);
+    color: var(--luxury-light);
+    transform: translateY(-2px);
+}
+
+/* Update language flags */
+.madame-chatbot-wrapper .lang-btn img {
+    width: 24px !important;
+    height: 16px !important;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.madame-chatbot-wrapper .lang-btn.active img {
+    border-color: var(--luxury-gold);
+    box-shadow: 0 0 0 1px var(--luxury-gold-light);
+}
+
+/* Update chatbot window width */
+.madame-chatbot-wrapper #chatbot {
+    width: 320px !important;
+    max-width: calc(100vw - 2rem) !important;
+}
+
+/* Update float animation */
+.madame-chatbot-wrapper .float-animation {
+    animation: float 6s ease-in-out infinite;
 }
