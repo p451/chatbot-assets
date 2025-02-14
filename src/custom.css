@@ -1,23 +1,23 @@
 :root {
-    --primary-color: #0400ff;     /* Main */
-    --primary-hover: #eb3131;     /* Hover*/
-    --button-bg: rgba(255, 255, 255, 0.8);   /* Button base without hover*/
+    --primary-color: #7D1128;     /* Main */
+    --primary-hover: #C99E10;     /* Hover*/
+    --button-bg:  #F5E6CA;   /* Button base without hover*/
     --button-hover-bg: var(--primary-color);
     --button-text: var(--luxury-dark);
     --button-hover-text: var(--luxury-light);
-    --luxury-gold: #00eeff;         /* User answer bg and scroll, bottom icons */
-    --luxury-dark: #000000;         /* User answer font color */
-    --luxury-light: #ffffff;        /* Bot answer font color */
-    --luxury-gold-light: #ff00ff;   /* Icon Hover color */
+    --luxury-gold:  #F5E6CA;         /* User answer bg and scroll, bottom icons */
+    --luxury-dark: #332620;         /* User answer font color */
+    --luxury-light: #FDF7E3;        /* Bot answer font color */
+    --luxury-gold-light: #005F73;   /* Icon Hover color */
     /* Remove navy variables since we're not using them anymore */
     font-family: 'Be Vietnam Pro', sans-serif;
-    --glass-bg: rgba(255, 255, 255, 0.15);      /* Glassmorphism background */
+    --glass-bg: rgba(100, 80, 60, 0.2);      /* Glassmorphism background */
     --glass-border: rgba(255, 255, 255, 0.1);   /* Glassmorphism border */
     --glass-shadow: rgba(10, 31, 68, 0.03);     /* Glassmorphism shadow */
 }
 
 body {
-    background-color: #700874; /* Cool light blue-gray */
+    background-color: #a18400; /* Cool light blue-gray */
 } 
 
 .glassmorphism {
