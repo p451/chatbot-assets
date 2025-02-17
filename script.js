@@ -6,8 +6,8 @@ const translations = {
         giftcard: "Ostaisin lahjakortin!",
         collaboration: "Ruvetaan yhteistyöhön!",
         menu: "Haluan nähdä ruokalistan",
-        feedback: "Haluan antaa palautetta",
-        chat_option: "Ottakaa minuun yhteyttä",
+        feedback: "Yhteydenotto",  // Changed from "Haluan antaa palautetta"
+        chat_option: null, // Remove this line or comment it out
         chat: "Kiitos! Jätä yhteystietosi niin olemme sinuun pian yhteydessä.",
         nice_to_hear: "Ihana kuulla, että haluatte tulla meille viihtymään! Montako henkeä teitä olisi tulossa?",
         person_count: {
@@ -43,7 +43,8 @@ const translations = {
         continue: "Jatka",
         select_one: "Valitse vähintään yksi vaihtoehto!",
         event_type_options: ["Aamiainen", "Lounas", "Kokous", "Illallinen", "Juhlatilaisuus", "Yritystilaisuus", "Muu yksityistilaisuus"],
-        offerings_options: ["Kahvitarjoilu", "Suolainen tai makea välitarjoilu", "Lounas", "Aamiainen", "Illallinen", "Brunssi", "Juhlatarjoilu", "Juomatarjoilu", "Muu"]
+        offerings_options: ["Kahvitarjoilu", "Suolainen tai makea välitarjoilu", "Lounas", "Aamiainen", "Illallinen", "Brunssi", "Juhlatarjoilu", "Juomatarjoilu", "Muu"],
+        message_label: "Viesti:"
     },
     en: {
         welcome: "Welcome! I'm Madame Bot, how can I help you today?",
@@ -52,8 +53,8 @@ const translations = {
         giftcard: "I'd like to buy a gift card!",
         collaboration: "Let's collaborate!",
         menu: "I want to see the menu",
-        feedback: "I want to give feedback",
-        chat_option: "Contact me",
+        feedback: "Contact us",  // Changed from "I want to give feedback"
+        chat_option: null, // Remove this line or comment it out
         chat: "Thank you! Leave your contact information and we'll get back to you soon.",
         nice_to_hear: "Wonderful to hear you'd like to visit us! How many people are coming?",
         person_count: {
@@ -89,7 +90,8 @@ const translations = {
         continue: "Continue",
         select_one: "Please select at least one option!",
         event_type_options: ["Breakfast", "Lunch", "Meeting", "Dinner", "Celebration", "Corporate event", "Other private event"],
-        offerings_options: ["Coffee service", "Savory or sweet snack", "Lunch", "Breakfast", "Dinner", "Brunch", "Celebration service", "Drink service", "Other"]
+        offerings_options: ["Coffee service", "Savory or sweet snack", "Lunch", "Breakfast", "Dinner", "Brunch", "Celebration service", "Drink service", "Other"],
+        message_label: "Message:"
     },
     fr: {
         welcome: "Bienvenue! Je suis Madame Bot, comment puis-je vous aider aujourd'hui?",
@@ -98,8 +100,8 @@ const translations = {
         giftcard: "Je voudrais acheter une carte cadeau!",
         collaboration: "Collaborons ensemble!",
         menu: "Je veux voir le menu",
-        feedback: "Je souhaite donner mon avis",
-        chat_option: "Contactez-moi",
+        feedback: "Contactez-nous",  // Changed from "Je souhaite donner mon avis"
+        chat_option: null, // Remove this line or comment it out
         chat: "Merci! Laissez vos coordonnées et nous vous contacterons bientôt.",
         nice_to_hear: "Ravi de vous accueillir! Combien de personnes serez-vous?",
         person_count: {
@@ -135,7 +137,8 @@ const translations = {
         continue: "Continuer",
         select_one: "Veuillez sélectionner au moins une option!",
         event_type_options: ["Petit déjeuner", "Déjeuner", "Réunion", "Dîner", "Célébration", "Événement d'entreprise", "Autre événement privé"],
-        offerings_options: ["Service de café", "Snack salé ou sucré", "Déjeuner", "Petit déjeuner", "Dîner", "Brunch", "Service de célébration", "Service de boissons", "Autre"]
+        offerings_options: ["Service de café", "Snack salé ou sucré", "Déjeuner", "Petit déjeuner", "Dîner", "Brunch", "Service de célébration", "Service de boissons", "Autre"],
+        message_label: "Message:"
     }
 };
 
@@ -264,8 +267,8 @@ window.initChatbot = function() {
                 { text: this.getText('giftcard'), action: "lahjakortti" },
                 { text: this.getText('collaboration'), action: "muu_viesti" },
                 { text: this.getText('menu'), action: "menu" },
-                { text: this.getText('feedback'), action: "muu_viesti" },
-                { text: this.getText('chat_option'), action: "chat" }
+                { text: this.getText('feedback'), action: "muu_viesti" }
+                // Removed the chat_option line
             ]);
         },
 
@@ -364,7 +367,7 @@ window.initChatbot = function() {
         handleTarjous() {
             this.addMessage(this.getText('contact_preference'), "bot");
             this.showOptions([
-                { text: this.getText('tell_more'), action: "chat" },
+                { text: this.getText('tell_more'), action: "muu_viesti" },  // Changed from "chat" to "muu_viesti"
                 { text: this.getText('continue_details'), action: "reservation" }
             ]);
         },
@@ -496,19 +499,36 @@ window.initChatbot = function() {
 
         showTalkForm() {
             let summary = '';
-            if (Object.keys(this.state.eventDetails).length > 0) {
+            if (Object.keys(this.state.eventDetails).length > 0 || this.state.selections.message) {
+                summary = `<div class="mb-4 p-2 bg-gray-100 rounded">
+                    <h3 class="font-bold">${this.getText('summary')}</h3>`;
+                
+                // Add event details if they exist
                 const details = this.state.eventDetails;
-                summary = `
-                    <div class="mb-4 p-2 bg-gray-100 rounded">
-                        <h3 class="font-bold">${this.getText('summary')}</h3>
-                        ${details.type?.length ? `<p>${this.getText('event_type_label')} ${details.type.join(', ')}</p>` : ''}
-                        ${details.offerings?.length ? `<p>${this.getText('offerings_label')} ${details.offerings.join(', ')}</p>` : ''}
-                        ${details.date ? `<p>${this.getText('date_label')} ${new Date(details.date).toLocaleString('fi-FI')}</p>` : ''}
-                        ${details.space ? `<p>${this.getText('space_label')} ${details.space === 'private' ? this.getText('private_space') : this.getText('shared_space')}</p>` : ''}
-                    </div>
-                `;
+                if (Object.keys(details).length > 0) {
+                    if (details.type?.length) {
+                        summary += `<p>${this.getText('event_type_label')} ${details.type.join(', ')}</p>`;
+                    }
+                    if (details.offerings?.length) {
+                        summary += `<p>${this.getText('offerings_label')} ${details.offerings.join(', ')}</p>`;
+                    }
+                    if (details.date) {
+                        summary += `<p>${this.getText('date_label')} ${new Date(details.date).toLocaleString('fi-FI')}</p>`;
+                    }
+                    if (details.space) {
+                        summary += `<p>${this.getText('space_label')} ${details.space === 'private' ? this.getText('private_space') : this.getText('shared_space')}</p>`;
+                    }
+                }
+
+                // Add message if it exists
+                if (this.state.selections.message) {
+                    summary += `<p>${this.getText('message_label')} ${this.state.selections.message}</p>`;
+                }
+
+                summary += '</div>';
             }
 
+            // Rest of the form HTML
             this.inputs.innerHTML = summary + `
                 <input type="text" id="name" placeholder="${this.getText('name')}" required class="w-full mb-2 p-2 border rounded">
                 <input type="email" id="email" placeholder="${this.getText('email')}" required class="w-full mb-2 p-2 border rounded">
