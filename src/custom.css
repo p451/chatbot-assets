@@ -39,6 +39,9 @@ body {
         0 4px 16px var(--glass-shadow),
         inset 0 0 0 1px rgba(255, 255, 255, 0.15);
     z-index: 1;
+    pointer-events: auto !important;
+    position: relative !important;
+    z-index: 999999 !important;
 }
 
 .message-in {
@@ -612,7 +615,7 @@ button[id="dateButton"]:hover,
 
 .lang-btn.active {
     opacity: 1;
-    box-shadow: 0 0 0 2px var(--luxury-gold);
+    box-shadow: 0 0 0 2px var (--luxury-gold);
 }
 
 /* Update chat toggle button z-index */
@@ -687,4 +690,12 @@ button[id="dateButton"]:hover,
 .chat-spacing button:hover {
     background: var(--button-hover-bg);
     color: var(--button-hover-text);
+}
+
+/* Update z-index handling */
+#chatbot-container,
+#chat-toggle,
+#chatbot {
+    position: fixed !important;
+    z-index: 999999 !important;
 }
